@@ -15,8 +15,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className}  antialiased`}>
-        <nav>
+      <body className={`${inter.className} antialiased relative`}>
+        <nav className="absolute top-0 left-0 w-full">
           <NavBar />
         </nav>
         {children}

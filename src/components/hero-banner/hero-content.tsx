@@ -9,7 +9,7 @@ export default function HeroContent() {
           HEAVENLY AURA EXPERIENCE
         </h3>
         <p
-          className={`${zillaSlab.className} antialiased`}
+          className={`${zillaSlab.className} antialiased font-bold`}
           style={{ fontSize: "30px" }}
         >
           Every item tells a story. From the first sketch to the final touch,
