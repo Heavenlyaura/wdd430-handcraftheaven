@@ -4,8 +4,10 @@ import TrendingProducts from "@/components/trending/trending-list";
 export default function Home() {
   return (
     <>
-      <Hero />
-      <TrendingProducts />
+      <div className="bg-[#FBF8F0]">
+        <Hero />
+        <TrendingProducts />
+      </div>
     </>
   );
 }
