@@ -3,13 +3,13 @@ import { zillaSlab, lusitana } from "@/app/fonts/fonts";
 
 export default function HeroContent() {
   return (
-    <div className="flex items-center justify-center w-[847px] h-[683px] text-start p-[16px]">
+    <div className="md:flex md:items-center md:justify-center md:w-[847px] md:h-[683px] md:text-start md:p-[16px]">
       <div>
-        <h3 className={`${lusitana.className} antialiased font-light`}>
+        <h3 className={`${lusitana.className} md:antialiased md:font-light`}>
           HEAVENLY AURA EXPERIENCE
         </h3>
         <p
-          className={`${zillaSlab.className} antialiased font-bold`}
+          className={`${zillaSlab.className} md:antialiased md:font-bold`}
           style={{ fontSize: "30px" }}
         >
           Every item tells a story. From the first sketch to the final touch,
@@ -18,7 +18,7 @@ export default function HeroContent() {
         </p>
 
         <Link
-          className={`${lusitana.className} antialiased font-light`}
+          className={`${lusitana.className} md:antialiased md:font-light`}
           href="/collections"
         >
           Discover More

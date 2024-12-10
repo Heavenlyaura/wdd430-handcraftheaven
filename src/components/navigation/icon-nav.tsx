@@ -18,7 +18,7 @@ const icons: IconItem[] = [
 
 export default function IconNav() {
   return (
-    <div className="flex gap-6">
+    <div className="md:flex md:gap-6">
       {icons.map((icon, index) => (
         <Image
           key={index} // Add a unique key for each element
@@ -31,3 +31,4 @@ export default function IconNav() {
     </div>
   );
 }
+

@@ -1,7 +1,7 @@
 import Link from "next/link";
 // import clsx from "clsx";
 
-const links = [
+export const links = [
   { name: "Home", href: "/" },
   { name: "Products", href: "/products" },
   { name: "Sellers", href: "/sellers" },
