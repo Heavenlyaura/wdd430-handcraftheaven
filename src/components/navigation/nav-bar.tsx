@@ -4,7 +4,7 @@ import Logo from "./logo";
 
 export default function NavBar() {
   return (
-    <div className="md:flex md:justify-around md:items-center md:gap-6 md:h-[88px]">
+    <div className="flex justify-between items-center p-4 md:p-6">
       <NavLinks />
       <Logo />
       <IconNav />

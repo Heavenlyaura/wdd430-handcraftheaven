@@ -18,17 +18,21 @@ const icons: IconItem[] = [
 
 export default function IconNav() {
   return (
-    <div className="md:flex md:gap-6">
-      {icons.map((icon, index) => (
-        <Image
-          key={index} // Add a unique key for each element
-          src={icon.icon} // The image source
-          alt={icon.alt} // The alt text for accessibility
-          width={24} // Adjust the width as needed
-          height={24} // Adjust the height as needed
-        />
-      ))}
-    </div>
+    <>
+      <div>
+        <Image src={cart} alt="cart icon" className="md:hidden" />
+      </div>
+      <div className="hidden md:flex md:gap-6">
+        {icons.map((icon, index) => (
+          <Image
+            key={index} // Add a unique key for each element
+            src={icon.icon} // The image source
+            alt={icon.alt} // The alt text for accessibility
+            width={24} // Adjust the width as needed
+            height={24} // Adjust the height as needed
+          />
+        ))}
+      </div>
+    </>
   );
 }
-
