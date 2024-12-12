@@ -1,5 +1,9 @@
+"use client";
 import Link from "next/link";
-// import clsx from "clsx";
+import Image from "next/image";
+import hambuger from "../../../public/navigation/hambuger.svg";
+import close from "../../../public/navigation/close.svg";
+import { useState } from "react";
 
 export const links = [
   { name: "Home", href: "/" },
@@ -9,15 +13,31 @@ export const links = [
 ];
 
 export default function NavLinks() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="flex gap-4">
-      {links.map((link) => {
-        return (
-          <Link key={link.name} href={link.href} className="">
-            <p>{link.name}</p>
-          </Link>
-        );
-      })}
-    </div>
+    <>
+      <div className="hidden md:flex gap-4">
+        {links.map((link) => {
+          return (
+            <Link key={link.name} href={link.href} className="">
+              <p>{link.name}</p>
+            </Link>
+          );
+        })}
+      </div>
+
+      <div className="md:hidden flex item-center">
+        <button
+          onClick={() => {
+            setIsOpen(!isOpen);
+          }}
+        >
+          <Image
+            src={isOpen ? close : hambuger}
+            alt={isOpen ? "close Icon" : "hambuger Icon"}
+          />
+        </button>
+      </div>
+    </>
   );
 }

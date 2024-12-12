@@ -5,8 +5,8 @@ export default function Home() {
   return (
     <>
       <div className="bg-[#FBF8F0]">
-        <Hero />
-        <TrendingProducts />
+        {/* <Hero /> */}
+        {/* <TrendingProducts /> */}
       </div>
     </>
   );

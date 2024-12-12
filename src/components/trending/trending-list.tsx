@@ -26,10 +26,11 @@ export default async function TrendingProducts() {
         <h3 className="md:font-light">TRENDING</h3>
         <h4 className="md:font-bold">Shop our Popular HandCrafted Items</h4>
       </div>
-
+  
       <div className="md:flex md:flex-wrap md:justify-evenly md:mb-20">
         {trendingProducts.map((product) => (
           <div key={product.productId} className="md:flex md:flex-col md:gap-4">
+            {/* Product details */}
             <Image
               src={product.imageurl}
               alt={product.name}
@@ -47,11 +48,14 @@ export default async function TrendingProducts() {
           </div>
         ))}
       </div>
-      <div className="md:grid md:grid-cols-2 md:grid-rows-1 md:mb-20">
+  
+      <div className=" md:grid md:grid-cols-2 md:grid-rows-1 md:mb-20">
         <div className="md:m-auto md:col-start-1 md:col-end-3 md:row-start-1 md:row-end-2 md:p-10">
           <Image src={imageTypeLayer.Icon} alt={imageTypeLayer.alt} />
         </div>
-        <div className="md:flex md:flex-col md:col-start-1 md:col-end-2 md:row-start-1 md:row-end md:justify-center md:items-center">
+        <div
+          className="md:flex md:flex-col md:col-start-1 md:col-end-2 md:row-start-1 md:row-end md:justify-center md:items-center"
+        >
           <div className="md:flex md:flex-col md:gap-4 md:text-white md:w-[355px] md:h-[200px] md:p-4">
             <h4 className="md:font-bold md:text-5xl">
               <span className="md:bg-black md:px-2">35%</span> OFF
@@ -63,6 +67,7 @@ export default async function TrendingProducts() {
           </div>
         </div>
       </div>
+
       <DisplayWrapedImages />
     </div>
   );
