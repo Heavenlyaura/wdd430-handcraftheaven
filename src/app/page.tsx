@@ -1,12 +1,12 @@
 import Hero from "@/components/hero-banner/hero";
-import TrendingProducts from "@/components/trending/trending-list";
+import MainSection from "@/components/main-section/main";
 
 export default function Home() {
   return (
     <>
       <div className="bg-[#F9F5EA]">
         <Hero />
-        {/* <TrendingProducts /> */}
+        <MainSection />
       </div>
     </>
   );
