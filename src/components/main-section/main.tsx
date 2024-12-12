@@ -4,10 +4,10 @@ import DisplayWrapedImages from "./wrap-img";
 
 export default function MainSection() {
   return (
-    <>
+    <main>
       <TrendingProducts />
       <BannerImage />
       <DisplayWrapedImages />
-    </>
+    </main>
   );
 }
