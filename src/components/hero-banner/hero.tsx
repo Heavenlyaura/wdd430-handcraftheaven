@@ -3,7 +3,7 @@ import HeroContent from "./hero-content";
 
 export default function HeroGroup() {
   return (
-    <section className="md:flex md:w-full md:bg-[#F9F5EA]">
+    <section className="flex flex-col-reverse relative top-[60px] md:grid grid-cols-2 f-full bg-[#F9F5EA]">
       <HeroImage />
       <HeroContent />
     </section>

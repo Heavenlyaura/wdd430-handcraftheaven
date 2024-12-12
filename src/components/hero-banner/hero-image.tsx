@@ -3,11 +3,11 @@ import Image from "next/image";
 
 export default function HeroImage() {
   return (
-    <div className="md:flex md:w-[593px] md:border md:bg-[#FBEDD3] md:overflow-hidden">
+    <div className=" max-w-[768px] md:max-w-[593px] md:col-start-1 md:col-end-2">
       <Image
         src={heroImg}
         alt="Hero Image"
-        className="md:object-cover md:w-full md:h-full"
+        className="w-full h-full object-cover"
       />
     </div>
   );
