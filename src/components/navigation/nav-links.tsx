@@ -4,13 +4,7 @@ import Image from "next/image";
 import hambuger from "../../../public/navigation/hambuger.svg";
 import close from "../../../public/navigation/close.svg";
 import { useState } from "react";
-
-export const links = [
-  { name: "Home", href: "/" },
-  { name: "Products", href: "/products" },
-  { name: "Sellers", href: "/sellers" },
-  { name: "About", href: "/about" },
-];
+import { links } from "@/library/definitions";
 
 export default function NavLinks() {
   const [isOpen, setIsOpen] = useState(false);

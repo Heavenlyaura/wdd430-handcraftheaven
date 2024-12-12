@@ -8,14 +8,14 @@ export default function DisplayWrapedImages() {
   const imgArray = [wrpimg1, contentImg1, wrpimg2, contentImg2];
 
   return (
-    <div className="md:flex md:justify-center md:items-center">
-      <div className="md:flex md:flex-wrap md:justify-center md:gap-10">
+    <div className="flex justify-center items-center my-20">
+      <div className="flex flex-wrap justify-center gap-10 p-4">
         {imgArray.map((img, index) => (
           <Image
             key={index}
             src={img}
             alt={`Wrapped image ${index + 1}`}
-            className="md:w-[514px] md:h-[593px] md:object-fit"
+            className="w-[514px] md:h-[593px] object-contain"
           />
         ))}
       </div>

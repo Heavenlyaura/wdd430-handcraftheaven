@@ -5,7 +5,7 @@ import { zillaSlab } from "@/app/fonts/fonts";
 export default function BannerImage() {
   return (
     <>
-      <section className="grid grid-cols-2 grid-rows-1 relative my-40">
+      <section className="grid grid-cols-2 grid-rows-1 relative mt-40 md:p-6">
         <div className="col-start-1 col-end-3 h-[260px]">
           <Image
             src={bannerImg}
