@@ -4,7 +4,7 @@ const client = await db.connect();
 
 async function listUsers() {
   const data = await client.sql`
-    SELECT * FROM users`;
+    SELECT * FROM products`;
   return data.rows;
 }
 

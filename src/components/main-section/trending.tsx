@@ -1,12 +1,13 @@
 import { getTrendingProducts } from "@/library/data";
 import { products } from "@/library/placeholders";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
+import { ImageType } from "@/library/definitions";
 import addToCart from "../../../public/cart/addtocart.svg";
-import layerImg from "../../../public/other/layer.jpg";
 import { zillaSlab } from "@/app/fonts/fonts";
 
 export default async function TrendingProducts() {
   const trendingProducts = await getTrendingProducts();
+  console.log(trendingProducts);
   return (
     <section className="relative top-28 bg-[#F9F5EA]">
       <div

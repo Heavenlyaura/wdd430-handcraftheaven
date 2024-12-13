@@ -21,6 +21,7 @@ async function seedProducts() {
 
     // Insert product data
     const insertedProducts = await Promise.all(
+
       products.map(async (product) => {
         return client.sql`
           INSERT INTO products (productId, sellerId, name, description, price, category, imageUrl)
@@ -67,7 +68,7 @@ async function seedUsers() {
 export async function GET() {
   try {
     await client.sql`BEGIN`;
-    await seedUsers();
+    // await seedUsers();
     await seedProducts();
     await client.sql`COMMIT`;
 
