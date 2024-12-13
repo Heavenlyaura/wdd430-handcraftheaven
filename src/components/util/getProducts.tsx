@@ -1,24 +1,16 @@
-import { getTrendingProducts } from "@/library/data";
-import { products } from "@/library/placeholders";
-import Image, { StaticImageData } from "next/image";
-import { ImageType } from "@/library/definitions";
+import { getProducts } from "@/library/data";
+import Image from "next/image";
 import addToCart from "../../../public/cart/addtocart.svg";
-import { zillaSlab } from "@/app/fonts/fonts";
 
-export default async function TrendingProducts() {
-  const trendingProducts = await getTrendingProducts();
-  console.log(trendingProducts);
+interface ProductsProps {
+  limit?: number; // Optional prop for limit
+}
+
+export default async function Products({ limit }: ProductsProps) {
+  // Fetch the trending products with the limit
+  const trendingProducts = await getProducts(limit);
   return (
-    <section className="relative top-28 bg-[#F9F5EA]">
-      <div
-        className={`${zillaSlab.className} antialiased flex flex-col items-center gap-4`}
-      >
-        <h3>TRENDING</h3>
-        <h4 className="font-bold">Shop our Popular HandCrafted Items</h4>
-      </div>
-
-      {/* Trending Products */}
-
+    <section className="">
       <div className="flex flex-wrap justify-center items-center">
         {trendingProducts.map((product) => (
           <div
