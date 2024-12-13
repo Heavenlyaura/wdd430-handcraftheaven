@@ -3,6 +3,7 @@ import { Product } from "./definitions";
 
 const client = await db.connect();
 
+
 async function getProducts(limit?: number): Promise<Product[]> {
   try {
     let query = `
@@ -19,4 +20,10 @@ async function getProducts(limit?: number): Promise<Product[]> {
   }
 }
 
-export { getProducts };
+async function getCategories() {
+  const data = await client.sql`
+    SELECT DISTINCT category FROM products`;
+  return data.rows;
+}
+
+export { getProducts, getCategories };

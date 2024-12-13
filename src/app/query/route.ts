@@ -8,9 +8,15 @@ async function listUsers() {
   return data.rows;
 }
 
+async function getCategories() {
+  const data = await client.sql`
+  SELECT category FROM products`;
+  return data.rows;
+}
+
 export async function GET() {
   try {
-    return Response.json(await listUsers());
+    return Response.json(await getCategories());
   } catch (error) {
     return Response.json({ error });
   }
