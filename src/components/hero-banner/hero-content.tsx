@@ -9,7 +9,7 @@ export default function HeroContent() {
           #HEAVENLYAURAEXPERIENCE
         </h3>
         <p
-          className={`${zillaSlab.className} md:antialiased md:font-bold text-[28px] font-bold`}
+          className={`${zillaSlab.className} md:antialiased md:font-bold text-[28px] font-bold py-6`}
         >
           Every item tells a story. From the first sketch to the final touch,
           <span className="text-[#C9A489]">
