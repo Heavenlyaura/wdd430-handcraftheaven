@@ -5,7 +5,7 @@ import { Category, ComponentProps } from "@/library/definitions";
 export default function Categories({ categories }: ComponentProps) {
   return (
     <section
-      className={`flex justify-between ${zillaSlab.className} antialiased p-6`}
+      className={`flex flex-col items-center gap-4 justify-center md:flex-row md:justify-between ${zillaSlab.className} antialiased p-8`}
     >
       <div className="font-bold text-3xl">Products</div>
       <div className="flex p-4 w-fit border border-[#964B00] rounded-3xl">
