@@ -48,6 +48,12 @@ export interface ProductDetailType {
   imageurl: string
 }
 
+export interface IconItem {
+  icon: StaticImageData;
+  alt: string;
+  href: string;
+}
+
  export const links = [
   { name: "HOME", href: "/" },
   { name: "PRODUCTS", href: "/products" },
