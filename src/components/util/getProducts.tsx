@@ -12,10 +12,10 @@ export default async function Products({ limit }: ProductsProps) {
       <div className="flex flex-wrap">
         {trendingProducts.map((product) => (
           <div
-            key={product.productId}
+            key={product.productid}
             className="w-full sm:w-1/2 lg:w-1/4 px-4 box-border text-center flex flex-col items-center gap-4 p-4"
           >
-            <Link href={`/product/productDetail${product.productId}`}>
+            <Link href={`/product/${product.productid}`}>
               <Image
                 src={product.imageurl}
                 alt={product.name}
@@ -24,7 +24,7 @@ export default async function Products({ limit }: ProductsProps) {
                 className="border"
               />
             </Link>
-            <Link href={`/product/productDetail${product.productId}`}>
+            <Link href={`/product/productDetail${product.productid}`}>
               <div>
                 <h5 className="text-lg font-semibold">{product.name}</h5>
                 <p className="text-sm text-gray-600">${product.price}</p>
