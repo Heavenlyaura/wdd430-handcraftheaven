@@ -14,7 +14,7 @@ export default function Details({ details }: { details: ProductDetailType }) {
         />
       </div>
 
-      <div className="flex flex-col gap-6 p-4">
+      <div className="flex flex-col gap-6 px-4 pb-10">
         <div className="flex justify-between">
           <h2 className="font-bold text-2xl md:text-3xl">{details.name}</h2>
           <h2 className="font-bold">
