@@ -33,6 +33,10 @@ export type ComponentProps = {
   categories: Category[];
 };
 
+export interface ProductsProps {
+  limit?: number; // Optional prop for limit
+}
+
 
  export const links = [
   { name: "Home", href: "/" },

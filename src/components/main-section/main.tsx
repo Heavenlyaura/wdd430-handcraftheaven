@@ -5,7 +5,7 @@ import { zillaSlab } from "@/app/fonts/fonts";
 
 export default function MainSection() {
   return (
-    <main className="mt-20">
+    <main className="mt-20 bg-[#FBF8F0]">
       <div
         className={`${zillaSlab.className} antialiased flex flex-col items-center gap-4 mb-6`}
       >

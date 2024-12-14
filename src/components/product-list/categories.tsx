@@ -8,9 +8,9 @@ export default function Categories({ categories }: ComponentProps) {
       className={`flex justify-between ${zillaSlab.className} antialiased p-6`}
     >
       <div className="font-bold text-3xl">Products</div>
-      <div className="flex p-4 w-fit border rounded-3xl">
+      <div className="flex p-4 w-fit border border-[#964B00] rounded-3xl">
         <p>Sort By:</p>
-        <select name="categories" id="categories">
+        <select name="categories" id="categories" className="bg-[#F9F5EA]">
           {categories.map((category: Category, index: number) => (
             <option key={index} value={category.category}>
               {category.category}

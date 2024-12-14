@@ -2,10 +2,7 @@ import { getProducts } from "@/library/data";
 import Image from "next/image";
 import addToCart from "../../../public/cart/addtocart.svg";
 import Link from "next/link";
-
-interface ProductsProps {
-  limit?: number; // Optional prop for limit
-}
+import { ProductsProps } from "@/library/definitions";
 
 export default async function Products({ limit }: ProductsProps) {
   // Fetch the trending products with the limit

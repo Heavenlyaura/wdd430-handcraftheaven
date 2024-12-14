@@ -7,9 +7,9 @@ export default async function ProductListing() {
   const categoriesData: Category[] =
     (await getCategories()) as unknown as Category[];
   return (
-    <>
+    <section className="">
       <Categories categories={categoriesData} />
       <Products />
-    </>
+    </section>
   );
 }
