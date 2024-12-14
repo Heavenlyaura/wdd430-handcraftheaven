@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { zillaSlab } from "@/app/fonts/fonts";
+import { Category, ComponentProps } from "@/library/definitions";
 
-export default function Categories() {
+export default function Categories({ categories }: ComponentProps) {
   return (
     <section
       className={`flex justify-between ${zillaSlab.className} antialiased p-6`}
@@ -10,12 +11,11 @@ export default function Categories() {
       <div className="flex p-4 w-fit border rounded-3xl">
         <p>Sort By:</p>
         <select name="categories" id="categories">
-          <option value="Jewelry">Jewelry</option>
-          <option value="Furniture">Furniture</option>
-          <option value="Textiles">Textiles</option>
-          <option value="Art">Art</option>
-          <option value="Bags">Bags</option>
-          <option value="Ceramics">Ceramics</option>
+          {categories.map((category: Category, index: number) => (
+            <option key={index} value={category.category}>
+              {category.category}
+            </option>
+          ))}
         </select>
       </div>
     </section>

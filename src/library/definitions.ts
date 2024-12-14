@@ -23,6 +23,17 @@ export interface ImageType {
   alt: string;
 }
 
+// Define the Category type
+export type Category = {
+  category: string;
+};
+
+// Define the component props with properly typed categories
+export type ComponentProps = {
+  categories: Category[];
+};
+
+
  export const links = [
   { name: "Home", href: "/" },
   { name: "Products", href: "/products" },

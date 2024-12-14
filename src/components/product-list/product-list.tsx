@@ -1,10 +1,14 @@
 import Products from "../util/getProducts";
 import Categories from "./categories";
+import { getCategories } from "@/library/data";
+import { Category } from "@/library/definitions";
 
-export default function ProductListing() {
+export default async function ProductListing() {
+  const categoriesData: Category[] =
+    (await getCategories()) as unknown as Category[];
   return (
     <>
-      <Categories />
+      <Categories categories={categoriesData} />
       <Products />
     </>
   );
