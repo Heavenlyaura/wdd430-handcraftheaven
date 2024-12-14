@@ -24,7 +24,7 @@ export default async function Products({ limit }: ProductsProps) {
                 className="border"
               />
             </Link>
-            <Link href={`/product/productDetail${product.productid}`}>
+            <Link href={`/products/${product.productid}`}>
               <div>
                 <h5 className="text-lg font-semibold">{product.name}</h5>
                 <p className="text-sm text-gray-600">${product.price}</p>
