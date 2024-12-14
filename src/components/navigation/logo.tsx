@@ -1,3 +1,3 @@
 export default function Logo() {
-  return <h1 className="">HeavenlyAura</h1>;
+  return <h1 className="">Handcrafter Haven</h1>;
 }

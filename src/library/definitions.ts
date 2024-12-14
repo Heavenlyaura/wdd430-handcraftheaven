@@ -49,9 +49,9 @@ export interface ProductDetailType {
 }
 
  export const links = [
-  { name: "Home", href: "/" },
-  { name: "Products", href: "/products" },
-  { name: "Sellers", href: "/sellers" },
-  { name: "About", href: "/about" },
+  { name: "HOME", href: "/" },
+  { name: "PRODUCTS", href: "/products" },
+  { name: "SELLERS", href: "/sellers" },
+  { name: "ABOUT", href: "/about" },
 ];
 
