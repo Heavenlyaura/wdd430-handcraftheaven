@@ -26,4 +26,10 @@ async function getCategories() {
   return data.rows;
 }
 
-export { getProducts, getCategories };
+async function getProductDetails(id:number) {
+  const data = await client.sql`
+  SELECT * FROM products WHERE productid = ${id}`;
+  return data.rows[0];
+}
+
+export { getProducts, getCategories, getProductDetails };

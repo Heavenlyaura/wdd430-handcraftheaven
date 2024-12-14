@@ -1,3 +1,4 @@
+import { inter } from "@/app/fonts/fonts";
 import { StaticImageData } from "next/image";
 
 export interface Product {
@@ -37,6 +38,15 @@ export interface ProductsProps {
   limit?: number; // Optional prop for limit
 }
 
+export interface ProductDetailType {
+  productid: number,
+  sellerid: number,
+  name: string,
+  description: string,
+  price: number,
+  category: string,
+  imageurl: string
+}
 
  export const links = [
   { name: "Home", href: "/" },
