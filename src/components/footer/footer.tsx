@@ -22,7 +22,7 @@ export default function Footer() {
     <footer
       className={`flex flex-col gap-6 bg-[#0C0D12] text-white p-6 ${zillaSlab.className} antialiased`}
     >
-      <h2 className="pt-6">Handcrafter Haven</h2>
+      <h2 className="pt-6 font-bold">Handcrafter Haven</h2>
       <div className="flex gap-6">
         <ul>
           {links.map((link, index) => (
