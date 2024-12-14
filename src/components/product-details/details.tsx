@@ -1,11 +1,10 @@
 import { ProductDetailType } from "@/library/definitions";
 import Image from "next/image";
 import Link from "next/link";
-import { zillaSlab } from "@/app/fonts/fonts";
 
 export default function Details({ details }: { details: ProductDetailType }) {
   return (
-    <section className={`${zillaSlab.className} antialiased flex flex-col md:flex-row md:p-10`}>
+    <section className={`flex flex-col md:flex-row md:p-10`}>
       <div className="md:max-w-[1000px] p-4 m-auto">
         <Image
           src={details.imageurl}
@@ -15,7 +14,7 @@ export default function Details({ details }: { details: ProductDetailType }) {
         />
       </div>
 
-      <div className="flex flex-col gap-6 border p-4">
+      <div className="flex flex-col gap-6 p-4">
         <div className="flex justify-between">
           <h2 className="font-bold text-2xl md:text-3xl">{details.name}</h2>
           <h2 className="font-bold">

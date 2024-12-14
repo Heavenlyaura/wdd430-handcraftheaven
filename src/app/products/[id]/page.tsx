@@ -1,6 +1,9 @@
 import { getProductDetails } from "@/library/data";
 import { ProductDetailType } from "@/library/definitions";
 import Details from "@/components/product-details/details";
+import CompanyMission from "@/components/product-details/company-mission";
+import Recommendations from "@/components/product-details/recommendations";
+import { zillaSlab } from "@/app/fonts/fonts";
 
 export default async function productDetail(props: {
   params: Promise<{ id: string }>;
@@ -11,8 +14,10 @@ export default async function productDetail(props: {
     id
   )) as unknown as ProductDetailType;
   return (
-    <main className="bg-[#F9F5EA] pt-20">
+    <main className={`bg-[#F9F5EA] pt-10 ${zillaSlab.className} antialiased `}>
       <Details details={product} />
+      <CompanyMission />
+      <Recommendations />
     </main>
   );
 }
