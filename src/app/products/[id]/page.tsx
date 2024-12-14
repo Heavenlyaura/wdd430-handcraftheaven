@@ -14,7 +14,7 @@ export default async function productDetail(props: {
     id
   )) as unknown as ProductDetailType;
   return (
-    <main className={`bg-[#F9F5EA] pt-10 ${zillaSlab.className} antialiased `}>
+    <main className={`bg-[#F9F5EA] md:pt-10 pt-20 ${zillaSlab.className} antialiased `}>
       <Details details={product} />
       <CompanyMission />
       <Recommendations />

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Details({ details }: { details: ProductDetailType }) {
   return (
-    <section className={`flex flex-col md:flex-row md:p-10`}>
+    <section className={`flex flex-col md:flex-row md:p-10 `}>
       <div className="md:max-w-[1000px] p-4 m-auto">
         <Image
           src={details.imageurl}
