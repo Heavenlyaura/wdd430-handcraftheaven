@@ -15,7 +15,7 @@ export default async function Products({ limit }: ProductsProps) {
             key={product.productid}
             className="w-full sm:w-1/2 lg:w-1/4 px-4 box-border text-center flex flex-col items-center gap-4 p-4"
           >
-            <Link href={`/product/${product.productid}`}>
+            <Link href={`/products/${product.productid}`}>
               <Image
                 src={product.imageurl}
                 alt={product.name}
