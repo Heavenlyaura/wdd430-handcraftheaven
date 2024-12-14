@@ -8,7 +8,7 @@ export default function DisplayWrapedImages() {
   const imgArray = [wrpimg1, contentImg1, wrpimg2, contentImg2];
 
   return (
-    <div className="flex justify-center items-center my-20 bg-[#ECDFDB] ">
+    <div className="flex justify-center items-center bg-[#ECDFDB] mt-10">
       <div className="flex flex-wrap justify-center gap-10 p-4 border">
         {imgArray.map((img, index) => (
           <Image
