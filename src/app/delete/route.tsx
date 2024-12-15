@@ -5,7 +5,7 @@ const client = await db.connect();
 async function deleteAllProducts() {
   try {
     const result = await client.sql`
-        DELETE FROM products`;
+        DROP TABLE products`;
 
     return { message: `${result.rowCount} products deleted successfully.` };
   } catch (error) {

@@ -16,7 +16,7 @@ async function getCategories() {
 
 export async function GET() {
   try {
-    return Response.json(await getCategories());
+    return Response.json(await listUsers());
   } catch (error) {
     return Response.json({ error });
   }

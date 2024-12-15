@@ -9,8 +9,8 @@ async function seedProducts() {
     // Ensure the Products table exists
     await client.sql`
       CREATE TABLE IF NOT EXISTS products (
-        productId SERIAL PRIMARY KEY,
-        sellerId INT NOT NULL,
+        productId UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        sellerId VARCHAR(255) NOT NULL,
         name VARCHAR(255) NOT NULL,
         description TEXT NOT NULL,
         price DECIMAL(10, 2) NOT NULL,
@@ -24,7 +24,7 @@ async function seedProducts() {
 
       products.map(async (product) => {
         return client.sql`
-          INSERT INTO products (productId, sellerId, name, description, price, category, imageUrl)
+          INSERT INTO products (sellerId, name, description, price, category, imageUrl)
           VALUES (${product.sellerId}, ${product.name}, ${product.description}, ${product.price}, ${product.category}, ${product.imageUrl})
           ON CONFLICT (productId) DO NOTHING;
         `;
@@ -66,8 +66,8 @@ async function seedUsers() {
 export async function GET() {
   try {
     await client.sql`BEGIN`;
-    await seedUsers();
-    // await seedProducts();
+    // await seedUsers();
+    await seedProducts();
     await client.sql`COMMIT`;
 
     return Response.json({ message: "Database seeded successfully" });

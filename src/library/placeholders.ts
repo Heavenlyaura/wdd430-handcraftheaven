@@ -1,90 +1,90 @@
 const products = [
   {
-    productId: 1,
-    sellerId: 1,
+    sellerId: "c72b3f64-c242-4ed7-94d6-7837a25aecc4",
     name: "Handmade Earrings",
-    description: "The product, “Handmade Earrings,” is a pair of elegant, handcrafted earrings that showcase intricate design and artistry. Perfect for adding a unique touch to any outfit. View the product",
+    description:
+      "The product, “Handmade Earrings,” is a pair of elegant, handcrafted earrings that showcase intricate design and artistry. Perfect for adding a unique touch to any outfit. View the product",
     price: 15.99,
     category: "Jewelry",
     imageUrl: "/productImages/Earring.jpg", // First image URL
   },
   {
-    productId: 2,
-    sellerId: 1,
+    sellerId: "c72b3f64-c242-4ed7-94d6-7837a25aecc4",
     name: "Handbag",
-    description: "The product, “Handbag,” is a stylish and functional handcrafted accessory, perfect for everyday use or special occasions.",
+    description:
+      "The product, “Handbag,” is a stylish and functional handcrafted accessory, perfect for everyday use or special occasions.",
     price: 20.0,
     category: "Bags",
     imageUrl: "/productImages/handbag.jpg", // Updated to first image URL
   },
   {
-    productId: 3,
-    sellerId: 2,
+    sellerId: "c72b3f64-c242-4ed7-94d6-7837a25aecc4",
     name: "Oak Chair",
-    description: "The product, “Oak Chair,” is a beautifully handcrafted wooden chair, combining durability and elegance to enhance any space.",
+    description:
+      "The product, “Oak Chair,” is a beautifully handcrafted wooden chair, combining durability and elegance to enhance any space.",
     price: 12.5,
     category: "Furniture",
     imageUrl: "/productImages/oakchair.jpg", // Updated to first image URL
   },
   {
-    productId: 4,
-    sellerId: 2,
+    sellerId: "c72b3f64-c242-4ed7-94d6-7837a25aecc4",
     name: "Ark Drawer",
-    description: "The product, “Ark Drawer,” is a meticulously crafted wooden drawer, offering both style and functionality for organizing your space.",
+    description:
+      "The product, “Ark Drawer,” is a meticulously crafted wooden drawer, offering both style and functionality for organizing your space.",
     price: 25.99,
     category: "Furniture",
     imageUrl: "/productImages/arkDrawer.jpg", // Updated to first image URL
   },
   {
-    productId: 5,
-    sellerId: 3,
+    sellerId: "c72b3f64-c242-4ed7-94d6-7837a25aecc4",
     name: "Wooden Chair",
-    description: "The product, “Wooden Chair,” is a sturdy and beautifully crafted wooden chair, designed to provide both comfort and style for your home.",
+    description:
+      "The product, “Wooden Chair,” is a sturdy and beautifully crafted wooden chair, designed to provide both comfort and style for your home.",
     price: 30.0,
     category: "Furniture",
     imageUrl: "/productImages/woodenChair.jpg", // Updated to first image URL
   },
   {
-    productId: 6,
-    sellerId: 3,
+    sellerId: "c72b3f64-c242-4ed7-94d6-7837a25aecc4",
     name: "Knitted Mat",
-    description: "The product, “Knitted Mat,” is a beautifully crafted mat that combines comfort and style, perfect for adding a cozy touch to any room.",
+    description:
+      "The product, “Knitted Mat,” is a beautifully crafted mat that combines comfort and style, perfect for adding a cozy touch to any room.",
     price: 100.0,
     category: "Art",
     imageUrl: "/productImages/knittedMat.jpg", // Updated to first image URL
   },
   {
-    productId: 7,
-    sellerId: 4,
+    sellerId: "c72b3f64-c242-4ed7-94d6-7837a25aecc4",
     name: "Diamond Necklace",
-    description: "The product, “Diamond Necklace,” is a stunning piece of jewelry featuring a delicate design, perfect for adding elegance to any outfit.",
+    description:
+      "The product, “Diamond Necklace,” is a stunning piece of jewelry featuring a delicate design, perfect for adding elegance to any outfit.",
     price: 18.75,
     category: "Jewelry",
     imageUrl: "/productImages/diamondChain.jpg", // Updated to first image URL
   },
   {
-    productId: 8,
-    sellerId: 4,
+    sellerId: "c72b3f64-c242-4ed7-94d6-7837a25aecc4",
     name: "Tool Set",
-    description: "The product, “Tool Set,” is a comprehensive collection of essential tools, designed for tackling a variety of DIY projects with ease.",
+    description:
+      "The product, “Tool Set,” is a comprehensive collection of essential tools, designed for tackling a variety of DIY projects with ease.",
     price: 45.0,
     category: "Textiles",
     imageUrl: "/productImages/toolSet.jpg", // Updated to first image URL
   },
   {
-    productId: 9,
-    sellerId: 5,
+    sellerId: "c72b3f64-c242-4ed7-94d6-7837a25aecc4",
     name: "Leather Bag",
-    description: "The product, “Leather Bag,” is a stylish and durable bag made from high-quality leather, perfect for everyday use.",
+    description:
+      "The product, “Leather Bag,” is a stylish and durable bag made from high-quality leather, perfect for everyday use.",
     price: 22.0,
     category: "Ceramics",
     imageUrl: "/productImages/leatherBag.jpg", // Updated to first image URL
   },
   {
-    productId: 10,
-    sellerId: 5,
+    sellerId: "c72b3f64-c242-4ed7-94d6-7837a25aecc4",
     name: "Leather Purse",
-    description: "The product, “Leather Purse,” is a chic, handcrafted leather purse, perfect for carrying your essentials in style.",
+    description:
+      "The product, “Leather Purse,” is a chic, handcrafted leather purse, perfect for carrying your essentials in style.",
     price: 35.0,
     category: "Bags",
     imageUrl: "/productImages/leatherPurse.jpg", // Updated to first image URL
