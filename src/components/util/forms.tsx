@@ -109,21 +109,11 @@ export function RegisterForm() {
         <div className="flex flex-col ">
           <div className="flex flex-row justify-center gap-6">
             <label className="flex items-center">
-              <input
-                type="radio"
-                name="role"
-                value="buyer"
-                className="mr-2"
-              />
+              <input type="radio" name="role" value="buyer" className="mr-2" />
               Buyer
             </label>
             <label className="flex items-center">
-              <input
-                type="radio"
-                name="role"
-                value="seller"
-                className="mr-2"
-              />
+              <input type="radio" name="role" value="seller" className="mr-2" />
               Seller
             </label>
           </div>
