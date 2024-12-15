@@ -27,7 +27,8 @@ async function getCategories() {
   return data.rows;
 }
 
-async function getProductDetails(id:number) {
+async function getProductDetails(id:string) {
+  console.log(id)
   const data = await client.sql`
   SELECT * FROM products WHERE productid = ${id}`;
   return data.rows[0];
