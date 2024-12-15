@@ -53,7 +53,7 @@ export function LoginForm() {
       </Link>
 
       <p className="text-center p-6">
-        Don't have an account?{" "}
+        Don&apos;t have an account?{" "}
         <Link className="font-bold" href="/register">
           Register
         </Link>
