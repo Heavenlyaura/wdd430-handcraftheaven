@@ -2,6 +2,7 @@ import { db } from "@vercel/postgres";
 import { Product } from "./definitions";
 import { UserRegisterData } from "./definitions";
 import { use } from "react";
+import { User } from "./definitions";
 
 const client = await db.connect();
 
@@ -46,6 +47,14 @@ export async function getEmail(email: string) {
   SELECT userid, firstName, lastname FROM users WHERE email = ${email}`;
 
   return data;
+}
+
+export async function getUser(email: string): Promise<User> {
+  const data = await client.sql`
+  SELECT * FROM users WHERE email = ${email}`;
+
+  console.log(data.rows[0])
+  return data.rows[0] as User;
 }
 
 export { getProducts, getCategories, getProductDetails, createUser };

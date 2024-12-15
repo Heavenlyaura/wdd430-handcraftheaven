@@ -1,9 +1,15 @@
 "use server";
-import { createUser } from "./data";
-import { SignUpFormSchema } from "./definitions";
+import { createUser, getUser } from "./data";
+import {
+  SignUpFormSchema,
+  LoginFormSchema,
+  User,
+  UserSession,
+} from "./definitions";
 import bcrypt from "bcrypt";
 import { getEmail } from "./data";
 import { redirect } from "next/navigation";
+import { createSession } from "./session";
 
 export async function register(prevState: any, formData: FormData) {
   const validationResults = SignUpFormSchema.safeParse({
@@ -30,4 +36,50 @@ export async function register(prevState: any, formData: FormData) {
   await createUser(validationResults.data, hashedPassword);
 
   redirect("/login");
+}
+
+export async function login(prevState: any, formData: FormData) {
+  const validationResults = LoginFormSchema.safeParse({
+    email: formData.get("email"),
+    password: formData.get("password"),
+  });
+
+  if (!validationResults.success) {
+    return {
+      errors: validationResults.error.flatten().fieldErrors,
+    };
+  }
+
+  const data = await getUser(validationResults.data.email);
+
+  if (!data) {
+    return {
+      errors: {
+        email: ["Email does not exist"],
+      },
+    };
+  }
+  
+  const isPasswordMatch = await bcrypt.compare(
+    validationResults.data.password,
+    data.password
+  );
+
+  if (!isPasswordMatch) {
+    return {
+      errors: {
+        email: ["Email or Password is incorrect"],
+      },
+    };
+  }
+  const user: UserSession = {
+    userid: data.userid,
+    firstname: data.firstname,
+    lastname: data.lastname,
+    email: data.email,
+    role: data.role,
+  };
+
+  await createSession(user);
+  redirect("/");
 }

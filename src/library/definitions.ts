@@ -12,14 +12,6 @@ export interface Product {
   imageurl: string;
 }
 
-export interface User {
-  userId: number;
-  name: string;
-  email: string;
-  password: string;
-  role: "seller" | "buyer";
-}
-
 export interface ImageType {
   Icon: StaticImageData;
   alt: string;
@@ -40,13 +32,13 @@ export interface ProductsProps {
 }
 
 export interface ProductDetailType {
-  productid: number,
-  sellerid: number,
-  name: string,
-  description: string,
-  price: number,
-  category: string,
-  imageurl: string
+  productid: number;
+  sellerid: number;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  imageurl: string;
 }
 
 export interface IconItem {
@@ -59,14 +51,28 @@ export const SignUpFormSchema = z.object({
   firstname: z.string().min(1, "Firstname is required"),
   lastname: z.string().min(1, "Lastname is required"),
   email: z.string().email("Please enter a valid email address"),
-  password: z.string().min(8, "Password must be at least 8 characters long") // Minimum length
-  .regex(/[A-Z]/, "Password must contain at least one uppercase letter") // At least one uppercase letter
-  .regex(/[a-z]/, "Password must contain at least one lowercase letter") // At least one lowercase letter
-  .regex(/[0-9]/, "Password must contain at least one number") // At least one number
-  .regex(/[@$!%*?&]/, "Password must contain at least one special character ").trim(),
-  role: z.string({message: "Role is required"}).min(1),
+  password: z
+    .string()
+    .min(8, "Password must be at least 8 characters long") // Minimum length
+    .regex(/[A-Z]/, "Password must contain at least one uppercase letter") // At least one uppercase letter
+    .regex(/[a-z]/, "Password must contain at least one lowercase letter") // At least one lowercase letter
+    .regex(/[0-9]/, "Password must contain at least one number") // At least one number
+    .regex(/[@$!%*?&]/, "Password must contain at least one special character ")
+    .trim(),
+  role: z.string({ message: "Role is required" }).min(1),
+});
 
-})
+export const LoginFormSchema = z.object({
+  email: z.string().email("Please enter a valid email address"),
+  password: z
+    .string()
+    .min(8, "Password must be at least 8 characters long") // Minimum length
+    .regex(/[A-Z]/, "Password must contain at least one uppercase letter") // At least one uppercase letter
+    .regex(/[a-z]/, "Password must contain at least one lowercase letter") // At least one lowercase letter
+    .regex(/[0-9]/, "Password must contain at least one number") // At least one number
+    .regex(/[@$!%*?&]/, "Password must contain at least one special character ")
+    .trim(),
+});
 
 export interface UserRegisterData {
   firstname: string;
@@ -76,11 +82,26 @@ export interface UserRegisterData {
   role: string;
 }
 
+export interface User {
+  userid: string;
+  firstname: string;
+  lastname: string;
+  email: string;
+  password: string;
+  role: "seller" | "buyer";
+}
 
- export const links = [
+export interface UserSession {
+  userid: string;
+  firstname: string;
+  lastname: string;
+  email: string;
+  role: "seller" | "buyer";
+}
+
+export const links = [
   { name: "Home", href: "/" },
   { name: "Products", href: "/products" },
   { name: "Sellers", href: "/sellers" },
   { name: "About", href: "/about" },
 ];
-
