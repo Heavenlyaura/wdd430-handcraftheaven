@@ -1,5 +1,5 @@
 import { db } from "@vercel/postgres";
-import { products, users } from "@/library/placeholders";
+import { products } from "@/library/placeholders";
 import bcrypt from "bcrypt";
 
 const client = await db.connect();
@@ -21,7 +21,6 @@ async function seedProducts() {
 
     // Insert product data
     const insertedProducts = await Promise.all(
-
       products.map(async (product) => {
         return client.sql`
           INSERT INTO products (sellerId, name, description, price, category, imageUrl)
@@ -38,29 +37,29 @@ async function seedProducts() {
 }
 
 async function seedUsers() {
-  await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+  const data = await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
   await client.sql`
     CREATE TABLE IF NOT EXISTS users (
     userId UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    name VARCHAR(255) NOT NULL,
+    firstname VARCHAR(255) NOT NULL,
+    lastname VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
     password TEXT NOT NULL,
     role VARCHAR(20) NOT NULL CHECK (role IN ('seller', 'buyer'))
     );
   `;
 
-  const insertedUsers = await Promise.all(
-    users.map(async (user) => {
-      const hashedPassword = await bcrypt.hash(user.password, 10);
-      return client.sql`
-        INSERT INTO users (name, email, password, role)
-        VALUES (${user.name}, ${user.email},${hashedPassword}, ${user.role})
-        ON CONFLICT (userId) DO NOTHING;
-      `;
-    })
-  );
+  //   users.map(async (user) => {
+  //     const hashedPassword = await bcrypt.hash(user.password, 10);
+  //     return client.sql`
+  //       INSERT INTO users (name, email, password, role)
+  //       VALUES (${user.name}, ${user.email},${hashedPassword}, ${user.role})
+  //       ON CONFLICT (userId) DO NOTHING;
+  //     `;
+  //   })
+  // );
 
-  return insertedUsers;
+  return data;
 }
 
 export async function GET() {
@@ -72,7 +71,7 @@ export async function GET() {
 
     return Response.json({ message: "Database seeded successfully" });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     await client.sql`ROLLBACK`;
     return Response.json({ error }, { status: 500 });
   }

@@ -1,9 +1,9 @@
 import { db } from "@vercel/postgres";
 import { Product } from "./definitions";
 import { UserRegisterData } from "./definitions";
+import { use } from "react";
 
 const client = await db.connect();
-
 
 async function getProducts(limit?: number): Promise<Product[]> {
   try {
@@ -27,29 +27,27 @@ async function getCategories() {
   return data.rows;
 }
 
-async function getProductDetails(id:string) {
-  console.log(id)
+async function getProductDetails(id: string) {
+  console.log(id);
   const data = await client.sql`
   SELECT * FROM products WHERE productid = ${id}`;
   return data.rows[0];
 }
 
 async function createUser(user: UserRegisterData, hashedPassword: string) {
-  const fullname = `${user.firstname} ${user.lastname}`;
-  console.log(fullname)
   const data = await client.sql`
-  INSERT INTO users (name, email, password, role)
-  VALUES (${fullname}, ${user.email}, ${hashedPassword}, ${user.role})
-  `
+  INSERT INTO users (firstname, lastname, email, password, role)
+  VALUES (${user.firstname}, ${user.lastname}, ${user.email}, ${hashedPassword}, ${user.role})
+  `;
   // console.log(data)
   return data.rows;
 }
 
 export async function getEmail(email: string) {
   const data = await client.sql`
-  SELECT name FROM users WHERE email = ${email}`;
+  SELECT email FROM users WHERE email = ${email}`;
 
-  return data.rowCount
+  return data.rowCount;
 }
 
 export { getProducts, getCategories, getProductDetails, createUser };
