@@ -1,9 +1,9 @@
-import Background from "@/components/login/login";
-import LoginForm from "@/components/login/login-form";
+import Background from "@/components/login/background-img";
+import { LoginForm } from "@/components/util/forms";
 
 export default function LoginPage() {
   return (
-    <section className="bg-[#F9F5EA]">
+    <section className="relative md:grid grid-cols-2 items-center">
       <Background />
       <LoginForm />
     </section>
