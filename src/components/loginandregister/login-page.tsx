@@ -1,4 +1,4 @@
-import Background from "@/components/login/background-img";
+import Background from "@/components/loginandregister/background-img";
 import { LoginForm } from "@/components/util/forms";
 
 export default function LoginPage() {
