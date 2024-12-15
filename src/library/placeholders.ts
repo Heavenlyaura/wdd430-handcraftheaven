@@ -92,56 +92,48 @@ const products = [
 ];
 const users = [
   {
-    userId: 1,
     name: "Alice Smith",
     email: "alice@example.com",
     password: "hashed_password1",
     role: "seller", // Linked to Handmade Mug and Knitted Scarf
   },
   {
-    userId: 2,
     name: "Bob Johnson",
     email: "bob@example.com",
     password: "hashed_password2",
     role: "seller", // Linked to Wooden Coasters and Embroidered Pillow
   },
   {
-    userId: 3,
     name: "Charlie Brown",
     email: "charlie@example.com",
     password: "hashed_password3",
     role: "seller", // Linked to Leather Wallet and Canvas Painting
   },
   {
-    userId: 4,
     name: "Diana White",
     email: "diana@example.com",
     password: "hashed_password4",
     role: "seller", // Linked to Beaded Necklace and Wool Blanket
   },
   {
-    userId: 5,
     name: "Ethan Green",
     email: "ethan@example.com",
     password: "hashed_password5",
     role: "seller", // Linked to Clay Pot and Macramé Wall Hanging
   },
   {
-    userId: 6,
     name: "Fiona Blue",
     email: "fiona@example.com",
     password: "hashed_password6",
     role: "buyer", // Buyer for sample orders
   },
   {
-    userId: 7,
     name: "George Red",
     email: "george@example.com",
     password: "hashed_password7",
     role: "buyer", // Buyer for sample orders
   },
   {
-    userId: 8,
     name: "Hannah Gray",
     email: "hannah@example.com",
     password: "hashed_password8",

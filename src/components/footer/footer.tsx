@@ -17,7 +17,6 @@ export const socialMediaLinks = [
 ];
 
 export default function Footer() {
-  console.log(links);
   return (
     <footer
       className={`flex flex-col gap-6 bg-[#0C0D12] text-white p-6 ${zillaSlab.className} antialiased`}

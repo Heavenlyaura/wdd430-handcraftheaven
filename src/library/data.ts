@@ -1,5 +1,6 @@
 import { db } from "@vercel/postgres";
 import { Product } from "./definitions";
+import { UserRegisterData } from "./definitions";
 
 const client = await db.connect();
 
@@ -32,4 +33,15 @@ async function getProductDetails(id:number) {
   return data.rows[0];
 }
 
-export { getProducts, getCategories, getProductDetails };
+async function createUser(user: UserRegisterData, hashedPassword: string) {
+  const fullname = `${user.firstname} ${user.lastname}`;
+  console.log(fullname)
+  const data = await client.sql`
+  INSERT INTO users (name, email, password, role)
+  VALUES (${fullname}, ${user.email}, ${hashedPassword}, ${user.role})
+  `
+  // console.log(data)
+  return data.rows;
+}
+
+export { getProducts, getCategories, getProductDetails, createUser };
