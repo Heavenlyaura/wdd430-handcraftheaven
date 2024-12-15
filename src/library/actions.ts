@@ -3,8 +3,9 @@ import { createUser } from "./data";
 import { SignUpFormSchema } from "./definitions";
 import bcrypt from "bcrypt";
 import { getEmail } from "./data";
+import { redirect } from "next/navigation";
 
-export async function login(prevState: any, formData: FormData) {
+export async function register(prevState: any, formData: FormData) {
   const validationResults = SignUpFormSchema.safeParse({
     firstname: formData.get("firstname"),
     lastname: formData.get("lastname"),
@@ -19,14 +20,14 @@ export async function login(prevState: any, formData: FormData) {
     };
   } else {
     const checkEmail = await getEmail(validationResults.data.email);
-    if (checkEmail) {
+    if (checkEmail.rowCount) {
       return { errors: "Email already exists" };
     }
   }
 
   const hashedPassword = await bcrypt.hash(validationResults.data.password, 10);
 
-  const registerUser = await createUser(validationResults.data, hashedPassword);
-}
+  await createUser(validationResults.data, hashedPassword);
 
-// {state?.errors.lastname && <p>{state.errors.lastname}</p>}
+  redirect("/login");
+}

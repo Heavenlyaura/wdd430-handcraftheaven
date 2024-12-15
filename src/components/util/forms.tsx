@@ -3,7 +3,7 @@ import Link from "next/link";
 import googleIcon from "../../../public/other/google.png";
 import Image from "next/image";
 import { zillaSlab } from "@/app/fonts/fonts";
-import { login } from "@/library/actions";
+import { register } from "@/library/actions";
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
 
@@ -64,14 +64,14 @@ export function LoginForm() {
   );
 }
 export function RegisterForm() {
-  const [state, loginAction] = useActionState(login, undefined);
+  const [state, registerAction] = useActionState(register, undefined);
   return (
     <div
       className={`${zillaSlab.className} antialiased md:absolute md:top-14 md:left-24 flex flex-col bg-white md:rounded-3xl md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-1 md:w-fit p-6`}
     >
       <h1 className="text-center text-2xl font-bold">Register</h1>
 
-      <form action={loginAction} className="flex flex-col p-4 gap-4">
+      <form action={registerAction} className="flex flex-col p-4 gap-4">
         <div className="flex md:flex-row flex-col gap-4">
           <div className="flex flex-col">
             <input

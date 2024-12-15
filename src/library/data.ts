@@ -28,7 +28,6 @@ async function getCategories() {
 }
 
 async function getProductDetails(id: string) {
-  console.log(id);
   const data = await client.sql`
   SELECT * FROM products WHERE productid = ${id}`;
   return data.rows[0];
@@ -39,15 +38,14 @@ async function createUser(user: UserRegisterData, hashedPassword: string) {
   INSERT INTO users (firstname, lastname, email, password, role)
   VALUES (${user.firstname}, ${user.lastname}, ${user.email}, ${hashedPassword}, ${user.role})
   `;
-  // console.log(data)
-  return data.rows;
+  return data;
 }
 
 export async function getEmail(email: string) {
   const data = await client.sql`
-  SELECT email FROM users WHERE email = ${email}`;
+  SELECT userid, firstName, lastname FROM users WHERE email = ${email}`;
 
-  return data.rowCount;
+  return data;
 }
 
 export { getProducts, getCategories, getProductDetails, createUser };
