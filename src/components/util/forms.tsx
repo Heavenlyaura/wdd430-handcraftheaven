@@ -1,11 +1,14 @@
 import Link from "next/link";
 import googleIcon from "../../../public/other/google.png";
 import Image from "next/image";
+import { zillaSlab } from "@/app/fonts/fonts";
 
 export function LoginForm() {
   return (
-    <div className="md:absolute md:top-24 md:left-24 flex flex-col bg-white md:rounded-3xl md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-1 md:w-fit p-6">
-      <h1 className="text-center">Login</h1>
+    <div
+      className={`${zillaSlab.className} antialiased md:absolute md:top-20 md:left-24 flex flex-col bg-white md:rounded-3xl md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-1 md:w-fit p-6`}
+    >
+      <h1 className="text-center text-2xl font-bold">Login</h1>
       <form action="/login" method="POST" className="flex flex-col p-4 gap-4">
         <label htmlFor="username">Email</label>
         <input
@@ -48,6 +51,13 @@ export function LoginForm() {
         <Image src={googleIcon} width={24} alt="Google Icon" />
         Google
       </Link>
+
+      <p className="text-center p-6">
+        Don't have an account?{" "}
+        <Link className="font-bold" href="/register">
+          Register
+        </Link>
+      </p>
     </div>
   );
 }

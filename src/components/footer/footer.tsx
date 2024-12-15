@@ -27,7 +27,7 @@ export default function Footer() {
         <ul>
           {links.map((link, index) => (
             <li key={index} className="p-2">
-              <Link href={link.href}>{link.name}</Link>
+              <Link href={link.href}>{link.name.toUpperCase()}</Link>
             </li>
           ))}
         </ul>
