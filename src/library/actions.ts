@@ -9,7 +9,8 @@ import {
 import bcrypt from "bcrypt";
 import { getEmail } from "./data";
 import { redirect } from "next/navigation";
-import { createSession } from "./session";
+import { createSession, decrypt } from "./session";
+import { cookies } from "next/headers";
 
 export async function register(prevState: any, formData: FormData) {
   const validationResults = SignUpFormSchema.safeParse({
@@ -59,7 +60,7 @@ export async function login(prevState: any, formData: FormData) {
       },
     };
   }
-  
+
   const isPasswordMatch = await bcrypt.compare(
     validationResults.data.password,
     data.password
@@ -83,3 +84,10 @@ export async function login(prevState: any, formData: FormData) {
   await createSession(user);
   redirect("/");
 }
+
+const isAuthenticated = async () => {
+  const cookie = (await cookies()).get("session")?.value;
+  if (!cookie) return false;
+  return true;
+};
+export default isAuthenticated;
