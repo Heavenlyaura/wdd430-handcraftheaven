@@ -73,7 +73,6 @@ export function RegisterForm() {
 
       <form
         action={loginAction}
-        method="POST"
         className="flex flex-col p-4 gap-4"
       >
         <div className="flex md:flex-row flex-col gap-4">
