@@ -71,10 +71,7 @@ export function RegisterForm() {
     >
       <h1 className="text-center text-2xl font-bold">Register</h1>
 
-      <form
-        action={loginAction}
-        className="flex flex-col p-4 gap-4"
-      >
+      <form action={loginAction} className="flex flex-col p-4 gap-4">
         <div className="flex md:flex-row flex-col gap-4">
           <div className="flex flex-col">
             <input
@@ -85,9 +82,11 @@ export function RegisterForm() {
               required
               placeholder="First Name"
             />
-            {state?.errors.firstname && (
-              <p className="text-sm text-red-600">{state.errors.firstname}</p>
-            )}
+            {state?.errors &&
+              typeof state.errors === "object" &&
+              state.errors.firstname && (
+                <p className="text-sm text-red-600">{state.errors.firstname}</p>
+              )}
           </div>
 
           <div className="flex flex-col">
@@ -99,9 +98,11 @@ export function RegisterForm() {
               required
               placeholder="Last Name"
             />
-            {state?.errors.lastname && (
-              <p className="text-sm text-red-600">{state.errors.lastname}</p>
-            )}
+            {state?.errors &&
+              typeof state.errors === "object" &&
+              state.errors.lastname && (
+                <p className="text-sm text-red-600">{state.errors.lastname}</p>
+              )}
           </div>
         </div>
 
@@ -117,9 +118,11 @@ export function RegisterForm() {
             </label>
           </div>
 
-          {state?.errors.role && (
-            <p className="text-sm text-red-600">{state.errors.role}</p>
-          )}
+          {state?.errors &&
+            typeof state.errors === "object" &&
+            state.errors.role && (
+              <p className="text-sm text-red-600">{state.errors.role}</p>
+            )}
         </div>
 
         <input
@@ -130,9 +133,11 @@ export function RegisterForm() {
           required
           placeholder="Email"
         />
-        {state?.errors.email && (
-          <p className="text-sm text-red-600">{state.errors.email}</p>
-        )}
+        {state?.errors &&
+          typeof state.errors === "object" &&
+          state.errors.email && (
+            <p className="text-sm text-red-600">{state.errors.email}</p>
+          )}
 
         <input
           className="border focus:border-[#964B00] outline-none p-4 rounded-3xl "
@@ -142,16 +147,20 @@ export function RegisterForm() {
           // required
           placeholder="Password"
         />
-        {state?.errors.password && (
-          <div>
-            {state.errors.password.map((error, index) => {
-              return (
+        {state?.errors &&
+          typeof state.errors === "object" &&
+          state.errors.password &&
+          Array.isArray(state.errors.password) && (
+            <div>
+              {state.errors.password.map((error, index) => (
                 <p className="text-sm text-red-600" key={index}>
                   {error}
                 </p>
-              );
-            })}
-          </div>
+              ))}
+            </div>
+          )}
+        {state?.errors && typeof state.errors === "string" && (
+          <p className="text-sm text-red-600">{state.errors}</p>
         )}
 
         <SubmitButton />

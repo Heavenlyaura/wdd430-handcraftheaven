@@ -45,4 +45,11 @@ async function createUser(user: UserRegisterData, hashedPassword: string) {
   return data.rows;
 }
 
+export async function getEmail(email: string) {
+  const data = await client.sql`
+  SELECT name FROM users WHERE email = ${email}`;
+
+  return data.rowCount
+}
+
 export { getProducts, getCategories, getProductDetails, createUser };
