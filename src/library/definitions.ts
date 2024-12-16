@@ -91,13 +91,15 @@ export interface User {
   role: "seller" | "buyer";
 }
 
-export interface UserSession {
-  userid: string;
-  firstname: string;
-  lastname: string;
-  email: string;
-  role: "seller" | "buyer";
-}
+export type UserSession = {
+  user: {
+    userid: string;
+    firstname: string;
+    lastname: string;
+    email: string;
+    role: "seller" | "buyer";
+  };
+};
 
 export const links = [
   { name: "Home", href: "/" },

@@ -3,12 +3,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
-const links = [
-  { name: "Profile", href: "/profile", role: "all" },
-  { name: "Customers", href: "/dashboard/customers", role: "all" },
-];
+const links = [{ name: "My Products", href: "/profile/products" }];
 
-export default function ProfileLinks() {
+export default function SellerLinks() {
   const pathname = usePathname();
   return (
     <>

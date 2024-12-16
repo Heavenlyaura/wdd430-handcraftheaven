@@ -45,8 +45,8 @@ export async function decrypt(session: string | undefined = "") {
   }
 }
 
-export async function getSession(): Promise<any> {
+export async function getSession(): Promise<UserSession> {
   const sessionRaw = (await cookies()).get("session")?.value;
   const session = await decrypt(sessionRaw);
-  return session;
+  return session as unknown as UserSession;
 }

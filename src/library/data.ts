@@ -55,4 +55,11 @@ export async function getUser(email: string): Promise<User> {
   return data.rows[0] as User;
 }
 
+export async function getSellerProducts(userId: string) {
+  const data = await client.sql`
+  SELECT * from products WHERE sellerid = ${userId}`;
+
+  return data.rows as Product[];
+}
+
 export { getProducts, getCategories, getProductDetails, createUser };
