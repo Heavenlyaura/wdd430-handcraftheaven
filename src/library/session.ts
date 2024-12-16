@@ -44,3 +44,9 @@ export async function decrypt(session: string | undefined = "") {
     console.log("Failed to verify session");
   }
 }
+
+export async function getSession(): Promise<any> {
+  const sessionRaw = (await cookies()).get("session")?.value;
+  const session = await decrypt(sessionRaw);
+  return session;
+}

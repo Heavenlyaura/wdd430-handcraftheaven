@@ -47,7 +47,7 @@ function LoginButton() {
   );
 }
 
-function LogoutButton() {
+export function LogoutButton() {
   return (
     <a href={"/logout"} className="">
       <Image height={24} src={logout} alt={"login Image"} className="" />

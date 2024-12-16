@@ -52,8 +52,6 @@ export async function getEmail(email: string) {
 export async function getUser(email: string): Promise<User> {
   const data = await client.sql`
   SELECT * FROM users WHERE email = ${email}`;
-
-  console.log(data.rows[0])
   return data.rows[0] as User;
 }
 
