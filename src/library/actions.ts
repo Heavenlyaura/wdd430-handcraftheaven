@@ -74,11 +74,13 @@ export async function login(prevState: any, formData: FormData) {
     };
   }
   const user: UserSession = {
-    userid: data.userid,
-    firstname: data.firstname,
-    lastname: data.lastname,
-    email: data.email,
-    role: data.role,
+    user: {
+      userid: data.userid,
+      firstname: data.firstname,
+      lastname: data.lastname,
+      email: data.email,
+      role: data.role,
+    },
   };
 
   await createSession(user);
