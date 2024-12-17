@@ -25,14 +25,17 @@ export async function encrypt(payload: SessionPayload) {
     .sign(encodedKey);
 }
 
-export async function decrypt(session: string | undefined = "") {
+export async function decrypt(
+  session: string | undefined = ""
+): Promise<UserSession | undefined> {
   try {
     const { payload } = await jwtVerify(session, encodedKey, {
       algorithms: ["HS256"],
     });
-    return payload;
+    return payload as unknown as UserSession;
   } catch (error) {
-    console.log("Failed to verify session");
+    console.error("Failed to verify session");
+    return undefined;
   }
 }
 
