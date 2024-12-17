@@ -62,11 +62,43 @@ async function seedUsers() {
   return data;
 }
 
+async function seedReviews() {
+  // Create the reviews table if it doesn't exist
+  await client.sql`
+  CREATE TABLE IF NOT EXISTS reviews (
+    reviewid UUID PRIMARY KEY DEFAULT gen_random_uuid(), -- UUID primary key
+    productid UUID NOT NULL, -- Foreign key to the products table
+    userid UUID NOT NULL, -- Foreign key to the users table
+    rating SMALLINT NOT NULL CHECK (rating BETWEEN 1 AND 5), -- Rating between 1 and 5
+    review TEXT, -- The review content
+    createdat TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Auto-set when the row is created
+    FOREIGN KEY (productid) REFERENCES products(productid) ON DELETE CASCADE, -- Cascade delete for products
+    FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE -- Cascade delete for users
+  );
+`;
+
+  // Insert a review into the reviews table
+  const insertedReview = await client.sql`
+    INSERT INTO reviews (productid, userid, rating, review)
+    VALUES (
+      'a7d8bd7b-b797-41fa-98de-f89923d6bfa6', -- Example product ID
+      '42840d04-2c33-4a0f-a24e-c7f4cb3f99f5', -- Example user ID
+      4, -- Rating
+      'This is a good product' -- Review text
+    )
+    ON CONFLICT (reviewid) DO NOTHING
+    RETURNING *; -- Return the inserted rows
+  `;
+
+  return insertedReview.rows;
+}
+
 export async function GET() {
   try {
     await client.sql`BEGIN`;
     // await seedUsers();
     await seedProducts();
+    // await seedReviews();
     await client.sql`COMMIT`;
 
     return Response.json({ message: "Database seeded successfully" });
