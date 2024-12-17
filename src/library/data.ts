@@ -1,8 +1,9 @@
 import { db } from "@vercel/postgres";
-import { Product } from "./definitions";
+import { Product, ReviewCount } from "./definitions";
 import { UserRegisterData } from "./definitions";
 import { use } from "react";
 import { User } from "./definitions";
+import exp from "constants";
 
 const client = await db.connect();
 
@@ -59,6 +60,24 @@ export async function getSellerProducts(userId: string) {
   const data = await client.sql`
   SELECT * from products WHERE sellerid = ${userId}`;
   return data.rows as Product[];
+}
+
+export async function getReviews(productid: string) {
+  const data = await client.sql`
+  SELECT * FROM reviews WHERE productid = ${productid}`;
+
+  return data;
+}
+
+export async function getAverageReview(
+  productid: string
+): Promise<ReviewCount> {
+  const data = await client.sql`
+  SELECT AVG(rating) AS averagerating
+  FROM reviews
+  WHERE productid = ${productid};`;
+
+  return data.rows[0] as ReviewCount;
 }
 
 export { getProducts, getCategories, getProductDetails, createUser };
