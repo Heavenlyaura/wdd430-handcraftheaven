@@ -4,13 +4,14 @@ import {
   SignUpFormSchema,
   LoginFormSchema,
   User,
-  UserSession,
+  UserFromSession,
 } from "./definitions";
 import bcrypt from "bcrypt";
 import { getEmail } from "./data";
 import { redirect } from "next/navigation";
 import { createSession, decrypt } from "./session";
 import { cookies } from "next/headers";
+import { NextResponse } from "next/server";
 
 export async function register(prevState: any, formData: FormData) {
   const validationResults = SignUpFormSchema.safeParse({
@@ -73,14 +74,12 @@ export async function login(prevState: any, formData: FormData) {
       },
     };
   }
-  const user: UserSession = {
-    user: {
-      userid: data.userid,
-      firstname: data.firstname,
-      lastname: data.lastname,
-      email: data.email,
-      role: data.role,
-    },
+  const user: UserFromSession = {
+    userid: data.userid,
+    firstname: data.firstname,
+    lastname: data.lastname,
+    email: data.email,
+    role: data.role,
   };
 
   await createSession(user);

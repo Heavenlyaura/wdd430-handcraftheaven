@@ -82,7 +82,7 @@ function SubmitButton() {
       className="bg-black rounded-3xl text-white px-8 py-4"
       type="submit"
     >
-      Register
+      Login
     </button>
   );
 }
