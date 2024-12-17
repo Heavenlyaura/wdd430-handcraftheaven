@@ -12,6 +12,10 @@ export interface Product {
   imageurl: string;
 }
 
+export interface ProductProp {
+  products: Product[];
+}
+
 export interface ImageType {
   Icon: StaticImageData;
   alt: string;

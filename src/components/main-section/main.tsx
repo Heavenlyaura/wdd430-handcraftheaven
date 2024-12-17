@@ -1,9 +1,12 @@
+import { getProducts } from "@/library/data";
 import Products from "../util/getProducts";
 import BannerImage from "./banner-img";
 import DisplayWrapedImages from "./wrap-img";
 import { zillaSlab } from "@/app/fonts/fonts";
 
-export default function MainSection() {
+export default async function MainSection() {
+  const getTrending = await getProducts(4);
+  console;
   return (
     <main className="mt-20 bg-[#FBF8F0]">
       <div
@@ -12,7 +15,7 @@ export default function MainSection() {
         <h3>TRENDING</h3>
         <h4 className="font-bold">Shop our Popular HandCrafted Items</h4>
       </div>
-      <Products limit={4} />
+      <Products products={getTrending} />
       <BannerImage />
       <DisplayWrapedImages />
     </main>
