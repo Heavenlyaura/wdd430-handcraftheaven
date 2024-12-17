@@ -29,9 +29,18 @@ async function getCategories() {
   return data.rows;
 }
 
+// async function getProductDetails(id: string) {
+//   const data = await client.sql`
+//   SELECT * FROM products WHERE productid = ${id}`;
+//   return data.rows[0];
+// }
+
 async function getProductDetails(id: string) {
   const data = await client.sql`
-  SELECT * FROM products WHERE productid = ${id}`;
+  SELECT products.* ,users.firstname, users.lastname 
+  FROM products 
+  JOIN users ON products.sellerId = users.userId
+  WHERE productId = ${id}`;
   return data.rows[0];
 }
 

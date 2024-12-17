@@ -43,6 +43,8 @@ export interface ProductDetailType {
   price: number;
   category: string;
   imageurl: string;
+  firstname: string
+  lastname: string
 }
 
 export interface IconItem {

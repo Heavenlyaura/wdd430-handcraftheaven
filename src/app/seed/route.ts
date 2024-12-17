@@ -9,8 +9,8 @@ async function seedProducts() {
     // Ensure the Products table exists
     await client.sql`
       CREATE TABLE IF NOT EXISTS products (
-        productId UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-        sellerId VARCHAR(255) NOT NULL,
+        productid UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        sellerid UUID NOT NULL,
         name VARCHAR(255) NOT NULL,
         description TEXT NOT NULL,
         price DECIMAL(10, 2) NOT NULL,
@@ -40,7 +40,7 @@ async function seedUsers() {
   const data = await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
   await client.sql`
     CREATE TABLE IF NOT EXISTS users (
-    userId UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    userid UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     firstname VARCHAR(255) NOT NULL,
     lastname VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
@@ -81,10 +81,10 @@ async function seedReviews() {
   const insertedReview = await client.sql`
     INSERT INTO reviews (productid, userid, rating, review)
     VALUES (
-      '170666ab-ff70-4e7a-a7bc-f44bbed1b984', 
+      '77bf3435-8adf-4fc7-8273-69a1030b00ed', 
       '42840d04-2c33-4a0f-a24e-c7f4cb3f99f5',
-      4, -- Rating
-      'This is a good product' -- Review text
+      5, -- Rating
+      'I think I like the design ' -- Review text
     )
     ON CONFLICT (reviewid) DO NOTHING
     RETURNING *; -- Return the inserted rows
