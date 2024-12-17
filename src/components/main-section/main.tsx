@@ -6,7 +6,6 @@ import { zillaSlab } from "@/app/fonts/fonts";
 
 export default async function MainSection() {
   const getTrending = await getProducts(4);
-  console;
   return (
     <main className="mt-20 bg-[#FBF8F0]">
       <div
