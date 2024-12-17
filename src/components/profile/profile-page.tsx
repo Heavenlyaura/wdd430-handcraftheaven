@@ -27,7 +27,7 @@ export default async function UserDetails() {
         </div>
 
         <section className=" max-w-[700px]">
-          <div className="grid grid-cols-2">
+          <div className="md:grid md:grid-cols-2 gap-2">
             <div className="flex  flex-col py-6 gap-4">
               <p className="font-bold">First Name</p>
               <p>{(await userFromSession).user.firstname}</p>
@@ -38,7 +38,7 @@ export default async function UserDetails() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2">
+          <div className="md:grid md:grid-cols-2 gap-2">
             <div className="flex  flex-col py-6 gap-4">
               <p className="font-bold">Email</p>
               <p>{(await userFromSession).user.email}</p>
