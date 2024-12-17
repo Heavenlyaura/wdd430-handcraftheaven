@@ -1,16 +1,13 @@
-import { getProducts } from "@/library/data";
 import Image from "next/image";
 import addToCart from "../../../public/cart/addtocart.svg";
 import Link from "next/link";
-import { ProductsProps } from "@/library/definitions";
+import { Product, ProductProp } from "@/library/definitions";
 
-export default async function Products({ limit }: ProductsProps) {
-  // Fetch the trending products with the limit
-  const trendingProducts = await getProducts(limit);
+export default async function Products({ products }: ProductProp) {
   return (
     <section className="">
       <div className="flex flex-wrap">
-        {trendingProducts.map((product) => (
+        {products.map((product: Product) => (
           <div
             key={product.productid}
             className="w-full sm:w-1/2 lg:w-1/4 px-4 box-border text-center flex flex-col items-center gap-4 p-4"
