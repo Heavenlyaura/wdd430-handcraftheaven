@@ -26,3 +26,20 @@ body {
   max-width: 1440px;
   margin: 0 auto;
 }
+
+.rating-stars {
+  /* display: flex; */
+  /* align-items: center; */
+  /* font-size: 24px; */
+  color: #ddd; /* Default star color (empty) */
+}
+
+.rating-stars .star.filled {
+  color: gold; /* Color for filled stars */
+}
+
+.rating-text {
+  /* margin-left: 8px; */
+  /* font-size: 18px; */
+  color: #333;
+}

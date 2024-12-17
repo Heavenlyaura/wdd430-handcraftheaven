@@ -81,8 +81,8 @@ async function seedReviews() {
   const insertedReview = await client.sql`
     INSERT INTO reviews (productid, userid, rating, review)
     VALUES (
-      'a7d8bd7b-b797-41fa-98de-f89923d6bfa6', -- Example product ID
-      '42840d04-2c33-4a0f-a24e-c7f4cb3f99f5', -- Example user ID
+      '170666ab-ff70-4e7a-a7bc-f44bbed1b984', 
+      '42840d04-2c33-4a0f-a24e-c7f4cb3f99f5',
       4, -- Rating
       'This is a good product' -- Review text
     )
@@ -97,8 +97,8 @@ export async function GET() {
   try {
     await client.sql`BEGIN`;
     // await seedUsers();
-    await seedProducts();
-    // await seedReviews();
+    // await seedProducts();
+    await seedReviews();
     await client.sql`COMMIT`;
 
     return Response.json({ message: "Database seeded successfully" });

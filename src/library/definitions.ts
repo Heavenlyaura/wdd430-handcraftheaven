@@ -127,3 +127,16 @@ export type SessionPayload = {
   user: UserFromSession;
   expiresAt: Date;
 };
+
+export interface Review {
+  reviewid: string; // UUID for the review
+  productid: string; // UUID for the product
+  userid: string; // UUID for the user
+  rating: number; // Rating between 1 and 5
+  review: string; // Text content of the review
+  createdat: string; // ISO 8601 timestamp for when the review was created
+}
+
+export interface ReviewCount {
+  averagerating: number;
+}
