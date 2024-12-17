@@ -1,3 +1,9 @@
+import UserDetails from "@/components/profile/profile-page";
+
 export default async function Profile() {
-  return <h2>Profile</h2>;
+  return (
+    <>
+      <UserDetails />
+    </>
+  );
 }
