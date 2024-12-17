@@ -1,12 +1,12 @@
 import "server-only";
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
-import { UserSession } from "./definitions";
+import { UserFromSession, UserSession, SessionPayload } from "./definitions";
 
 const secretKey = process.env.SESSION_SECRET;
 const encodedKey = new TextEncoder().encode(secretKey);
 
-export async function createSession(user: UserSession) {
+export async function createSession(user: UserFromSession) {
   const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
   const session = await encrypt({ user, expiresAt });
 
@@ -16,15 +16,6 @@ export async function createSession(user: UserSession) {
     expires: expiresAt,
   });
 }
-
-export async function deleteSession() {
-  (await cookies()).delete("session");
-}
-
-type SessionPayload = {
-  user: UserSession;
-  expiresAt: Date;
-};
 
 export async function encrypt(payload: SessionPayload) {
   return new SignJWT(payload)
@@ -45,8 +36,12 @@ export async function decrypt(session: string | undefined = "") {
   }
 }
 
-export async function getSession(): Promise<UserSession> {
+export async function getUserFromSession(): Promise<UserSession> {
   const sessionRaw = (await cookies()).get("session")?.value;
   const session = await decrypt(sessionRaw);
   return session as unknown as UserSession;
+}
+
+export async function deleteSession() {
+  (await cookies()).delete("session");
 }

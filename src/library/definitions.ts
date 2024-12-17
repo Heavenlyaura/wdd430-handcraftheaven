@@ -82,24 +82,35 @@ export interface UserRegisterData {
   role: string;
 }
 
-export interface User {
+export type User = {
   userid: string;
   firstname: string;
   lastname: string;
   email: string;
   password: string;
   role: "seller" | "buyer";
+};
+
+export interface UserFromSession {
+  userid: string;
+  firstname: string;
+  lastname: string;
+  email: string;
+  role: "seller" | "buyer";
 }
 
-export type UserSession = {
+export interface UserSession {
   user: {
     userid: string;
     firstname: string;
     lastname: string;
     email: string;
-    role: "seller" | "buyer";
+    role: "buyer" | "seller"; // Adjust as needed for possible roles
   };
-};
+  expiresAt: string; // ISO 8601 date string
+  iat: number; // Issued at, in seconds since epoch
+  exp: number; // Expiry, in seconds since epoch
+}
 
 export const links = [
   { name: "Home", href: "/" },
@@ -107,3 +118,8 @@ export const links = [
   { name: "Sellers", href: "/sellers" },
   { name: "About", href: "/about" },
 ];
+
+export type SessionPayload = {
+  user: UserFromSession;
+  expiresAt: Date;
+};

@@ -1,9 +1,8 @@
 import GetSellerProducts from "@/components/profile/seller-products";
-import { getSession } from "@/library/session";
+import { getUserFromSession } from "@/library/session";
 
 export default async function MyProducts() {
-  const session = await getSession();
-  console.log(session.user.role);
+  const session = await getUserFromSession();
   return (
     <section>
       <GetSellerProducts />
