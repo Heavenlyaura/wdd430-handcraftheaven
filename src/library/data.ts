@@ -8,11 +8,17 @@ import { getUserFromSession } from "./session";
 
 const client = await db.connect();
 
-async function getProducts(limit?: number): Promise<Product[]> {
+async function getProducts(
+  limit?: number,
+  category?: string
+): Promise<Product[]> {
   try {
     let query = `
       SELECT * FROM products
     `;
+    if (category) {
+      query += ` WHERE category = '${category}' `;
+    }
     if (limit !== undefined && limit > 0) {
       query += ` LIMIT ${limit}`;
     }
