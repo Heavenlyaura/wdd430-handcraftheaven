@@ -24,7 +24,7 @@ export default function StarRate({ productid }: { productid: string }) {
     >
       <section className="flex justify-evenly p-4">
         {Array.from({ length: 5 }).map((_, index) => {
-          const starIndex = index + 1; // Rating starts from 1
+          const starIndex = index + 1; 
           return (
             <label htmlFor={`rate-${index}`} key={index}>
               <input
