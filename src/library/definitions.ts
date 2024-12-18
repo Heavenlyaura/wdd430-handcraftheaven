@@ -36,21 +36,27 @@ export interface ProductsProps {
 }
 
 export interface ProductDetailType {
-  productid: number;
+  productid: string;
   sellerid: number;
   name: string;
   description: string;
   price: number;
   category: string;
   imageurl: string;
-  firstname: string
-  lastname: string
+  firstname: string;
+  lastname: string;
 }
 
 export interface IconItem {
   icon: StaticImageData;
   alt: string;
   href: string;
+}
+
+export interface AddReview {
+  rate: number;
+  review: string;
+  productid: string;
 }
 
 export const SignUpFormSchema = z.object({

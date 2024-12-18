@@ -1,9 +1,10 @@
 import { db } from "@vercel/postgres";
-import { Product, ReviewCount } from "./definitions";
+import { AddReview, Product, Review, ReviewCount } from "./definitions";
 import { UserRegisterData } from "./definitions";
 import { use } from "react";
 import { User } from "./definitions";
 import exp from "constants";
+import { getUserFromSession } from "./session";
 
 const client = await db.connect();
 
@@ -89,4 +90,14 @@ export async function getAverageReview(
   return data.rows[0] as ReviewCount;
 }
 
+export async function createReview(review: AddReview) {
+  const { user } = await getUserFromSession();
+  const data = await client.sql`
+    INSERT INTO reviews (productid, userid, rating, review)
+    VALUES (${review.productid}, ${user.userid}, ${review.rate}, ${review.review})
+    -- RETURNING *;
+  `;
+
+  return data.rows;
+}
 export { getProducts, getCategories, getProductDetails, createUser };

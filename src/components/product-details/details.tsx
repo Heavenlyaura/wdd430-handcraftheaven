@@ -1,7 +1,9 @@
+"use client";
 import { ProductDetailType } from "@/library/definitions";
 import Image from "next/image";
 import Link from "next/link";
 import RatingStars from "../util/star-rating";
+import StarRate from "./starRate";
 
 export default function Details({
   details,
@@ -14,8 +16,8 @@ export default function Details({
 }) {
   return (
     <>
-      <section className={`flex flex-col md:flex-row md:p-10 `}>
-        <div className="md:max-w-[1000px] p-4 m-auto">
+      <section className={`flex flex-col sm:flex-row md:p-10 `}>
+        <div className="sm:max-w-[1000px] p-4 m-auto">
           <Image
             src={details.imageurl}
             alt={`Image if ${details.name}`}
@@ -25,7 +27,7 @@ export default function Details({
         </div>
         <div className="flex flex-col gap-6 px-4 pb-10">
           <div className="flex justify-between">
-            <h2 className="font-bold text-2xl md:text-3xl">{details.name}</h2>
+            <h2 className="font-bold text-2xl sm:text-3xl">{details.name}</h2>
             <h2 className="font-bold">
               {new Intl.NumberFormat("en-US", {
                 style: "currency",
@@ -55,9 +57,9 @@ export default function Details({
             Add To Cart
           </Link>
         </div>
+      <StarRate productid={details.productid} />
       </section>
 
-      
     </>
   );
 }
