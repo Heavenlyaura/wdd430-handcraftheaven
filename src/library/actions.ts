@@ -110,12 +110,10 @@ export async function addReview(prevState: any, formData: FormData) {
   if (!addReviewToDb)
     return {
       message: "Failed to add review",
-      success: false,
     };
 
   return {
     message: "Your rating has been recorded",
-    success: false,
   };
 }
 export default isAuthenticated;

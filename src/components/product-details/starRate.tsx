@@ -22,7 +22,7 @@ export default function StarRate({ productid }: { productid: string }) {
       action={addReviewAction}
       className=" p-6 md:w-fit w-full flex flex-col"
     >
-      <section className="flex">
+      <section className="flex justify-evenly p-4">
         {Array.from({ length: 5 }).map((_, index) => {
           const starIndex = index + 1; // Rating starts from 1
           return (
@@ -33,15 +33,12 @@ export default function StarRate({ productid }: { productid: string }) {
                 name="rate"
                 value={starIndex}
                 onChange={() => handleRatingChange(starIndex)}
-                checked={rating === starIndex} // Mark as selected if the rating matches
-                className="hidden" // Hide the radio button (optional)
-                onSubmit={() => {
-                  // setRating(0);
-                }}
+                checked={rating === starIndex}
+                className="hidden"
               />
               <FaStar
-                color={rating >= starIndex ? "gold" : "gray"} // Gold for selected, gray for unselected
-                style={{ cursor: "pointer" }} // Make the stars clickable
+                color={rating >= starIndex ? "gold" : "gray"}
+                style={{ cursor: "pointer", fontSize: "30px" }} // Increase the fontSize to your desired value
               />
             </label>
           );
@@ -62,6 +59,9 @@ export default function StarRate({ productid }: { productid: string }) {
       <input type="hidden" name="productid" value={productid} />
       <p>{state?.message}</p>
       <button
+        onSubmit={() => {
+          setRating(0);
+        }}
         type="submit"
         className="border p-2 rounded-2xl bg-stone-500 text-white"
       >
