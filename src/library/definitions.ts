@@ -148,3 +148,9 @@ export interface Review {
 export interface ReviewCount {
   averagerating: number;
 }
+
+
+export interface GetProductsParams {
+  limit?: number;
+  category?: string;
+}

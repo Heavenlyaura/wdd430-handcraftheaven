@@ -8,14 +8,14 @@ export default async function ProductListing({
 }: {
   searchParams: { category?: string };
 }) {
-  console.log( searchParams.category);
-  const allProducts = await getProducts();
+  const { category } = searchParams;
+  const products = await getProducts({ category: category });
   const categoriesData: Category[] =
     (await getCategories()) as unknown as Category[];
   return (
     <section>
       <Categories categories={categoriesData} />
-      <Products products={allProducts} />
+      <Products products={products} />
     </section>
   );
 }

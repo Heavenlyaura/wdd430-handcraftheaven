@@ -1,22 +1,20 @@
 import { db } from "@vercel/postgres";
 import { AddReview, Product, Review, ReviewCount } from "./definitions";
 import { UserRegisterData } from "./definitions";
-import { use } from "react";
-import { User } from "./definitions";
-import exp from "constants";
+import { User, GetProductsParams } from "./definitions";
 import { getUserFromSession } from "./session";
 
 const client = await db.connect();
 
-async function getProducts(
-  limit?: number,
-  category?: string
-): Promise<Product[]> {
+async function getProducts({
+  limit,
+  category,
+}: GetProductsParams): Promise<Product[]> {
   try {
     let query = `
       SELECT * FROM products
     `;
-    if (category) {
+    if (category && category !== "all") {
       query += ` WHERE category = '${category}' `;
     }
     if (limit !== undefined && limit > 0) {

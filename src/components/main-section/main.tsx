@@ -5,7 +5,7 @@ import DisplayWrapedImages from "./wrap-img";
 import { zillaSlab } from "@/app/fonts/fonts";
 
 export default async function MainSection() {
-  const getTrending = await getProducts(4);
+  const getTrending = await getProducts({ limit: 4 });
   return (
     <main className="mt-20 bg-[#FBF8F0]">
       <div
