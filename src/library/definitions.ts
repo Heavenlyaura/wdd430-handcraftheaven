@@ -130,6 +130,15 @@ export const links = [
   { name: "Sellers", href: "/sellers" },
   { name: "About", href: "/about" },
 ];
+export const hambugerLinks = [
+  { name: "Home", href: "/", md: "flex" },
+  { name: "Products", href: "/products", md: "flex" },
+  { name: "Sellers", href: "/sellers", md: "flex" },
+  { name: "About", href: "/about", md: "flex" },
+  { name: "Profile", href: "/profile", md: "hidden" },
+  { name: "Search", href: "", md: "hidden" },
+  { name: "Log Out", href: "/logout", md: "hidden" },
+];
 
 export type SessionPayload = {
   user: UserFromSession;
@@ -148,7 +157,6 @@ export interface Review {
 export interface ReviewCount {
   averagerating: number;
 }
-
 
 export interface GetProductsParams {
   limit?: number;
