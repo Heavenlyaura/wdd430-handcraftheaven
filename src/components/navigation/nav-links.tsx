@@ -5,10 +5,13 @@ import hambuger from "../../../public/navigation/hambuger.svg";
 import close from "../../../public/navigation/close.svg";
 import { useEffect, useState } from "react";
 import { hambugerLinks } from "@/library/definitions";
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
 
 export default function NavLinks() {
   const [isOpen, setIsOpen] = useState(false);
   const [menuClasses, setMenuClasses] = useState<string[]>(["hidden"]);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (isOpen) {
@@ -37,8 +40,18 @@ export default function NavLinks() {
       <div className={`hidden md:flex gap-6`}>
         {hambugerLinks.map((link) => {
           return (
-            <Link key={link.name} href={link.href} className="">
-              <p className={`md:${link.md}`}>{link.name}</p>
+            <Link key={link.name} href={link.href} className="relative group">
+              <p className={`md:${link.md} text-gray-800 relative`}>
+                {link.name}
+                <span
+                  className={clsx(
+                    "absolute left-0 bottom-0 w-0 h-0.5 bg-[#0C0D12] group-hover:w-full group-hover:h-1 transition-all duration-300 ease-in-out",
+                    {
+                      " bg-[#0C0D12]": pathname === link.href,
+                    }
+                  )}
+                ></span>
+              </p>
             </Link>
           );
         })}
