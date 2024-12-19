@@ -4,7 +4,7 @@ import Image from "next/image";
 import hambuger from "../../../public/navigation/hambuger.svg";
 import close from "../../../public/navigation/close.svg";
 import { useEffect, useState } from "react";
-import { links, hambugerLinks } from "@/library/definitions";
+import { hambugerLinks } from "@/library/definitions";
 
 export default function NavLinks() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,11 +13,11 @@ export default function NavLinks() {
   useEffect(() => {
     if (isOpen) {
       setMenuClasses([
-        "absolute pt-20 pl-8 top-0 left-0 flex flex-col bg-black bg-opacity-50 backdrop-blur-lg text-white font-bold h-screen w-1/2 gap-6 transition-transform duration-300 ease-in-out transform translate-x-0",
+        "absolute z-30 pt-20 pl-8 top-0 left-0 flex flex-col bg-black bg-opacity-50 backdrop-blur-lg text-white font-bold h-screen w-1/2 gap-6 transition-transform duration-300 ease-in-out transform translate-x-0",
       ]);
     } else {
       setMenuClasses([
-        "absolute pt-14 pl-8 top-0 left-0 flex flex-col bg-black bg-opacity-50 backdrop-blur-lg text-white font-bold h-screen w-1/2 gap-6 transition-transform duration-300 ease-in-out transform translate-x-[-100%]",
+        "absolute z-30 pt-20 pl-8 top-0 left-0 flex flex-col bg-black bg-opacity-50 backdrop-blur-lg text-white font-bold h-screen w-1/2 gap-6 transition-transform duration-300 ease-in-out transform translate-x-[-100%]",
       ]);
     }
   }, [isOpen]);
@@ -45,7 +45,7 @@ export default function NavLinks() {
       </div>
 
       <div
-        className={`${isOpen ? "flex z-10 " : ""} md:hidden flex items-center`}
+        className={`${isOpen ? "flex z-40 " : ""} md:hidden flex items-center`}
       >
         <button
           onClick={() => {
